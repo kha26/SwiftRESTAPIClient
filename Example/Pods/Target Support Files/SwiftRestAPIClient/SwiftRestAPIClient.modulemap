@@ -1,0 +1,6 @@
+framework module SwiftRestAPIClient {
+  umbrella header "SwiftRestAPIClient-umbrella.h"
+
+  export *
+  module * { export * }
+}

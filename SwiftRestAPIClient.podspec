@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'SwiftRestAPIClient'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of SwiftRestAPIClient.'
+  s.summary          = 'A REST API client for Swift.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,17 +18,18 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+SwiftRestAPIClient provides a basic structure for creating a client API to connect to a REST backend.
                        DESC
 
-  s.homepage         = 'https://github.com/kha26/SwiftRestAPIClient'
+  s.homepage         = 'https://github.com/kha26/SwiftRESTAPIClient'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'kha26' => 'kha26@cornell.edu' }
-  s.source           = { :git => 'https://github.com/kha26/SwiftRestAPIClient.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/kha26/SwiftRESTAPIClient.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
+  s.swift_version = '3.2'
 
   s.source_files = 'SwiftRestAPIClient/Classes/**/*'
   
@@ -38,5 +39,5 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'Alamofire'
 end

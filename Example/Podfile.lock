@@ -1,0 +1,23 @@
+PODS:
+  - Alamofire (4.7.2)
+  - SwiftRestAPIClient (0.1.0):
+    - Alamofire
+
+DEPENDENCIES:
+  - SwiftRestAPIClient (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+
+EXTERNAL SOURCES:
+  SwiftRestAPIClient:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  SwiftRestAPIClient: 01e5304648986f831c043e9cfa6031ca7962ccfd
+
+PODFILE CHECKSUM: 79db56fa76fc4ac04285b374b3245ac0754f9c30
+
+COCOAPODS: 1.5.3
