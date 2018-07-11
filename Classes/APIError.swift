@@ -5,7 +5,7 @@
 //  Created by Kemal Hasan Atay on 7/8/18.
 //
 
-enum APIError: Error {
+public enum APIError: Error {
     case jsonConversionFailed
     case serverUnknownError
 }

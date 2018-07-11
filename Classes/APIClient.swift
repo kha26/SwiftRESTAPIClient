@@ -7,11 +7,11 @@
 
 import Alamofire
 
-class APIClient: APIClientProtocol {
+public class APIClient: APIClientProtocol {
     
-    var configuration: APIConfiguration?
+    public var configuration: APIConfiguration?
     
-    static var shared: APIClientProtocol = APIClient()
+    public static var shared: APIClient = APIClient()
     
     func send<T>(_ request: T, objectBlock block: ResultCallback<T.Response>?) -> DataRequest?
         where T: APIRequest {
@@ -26,7 +26,8 @@ class APIClient: APIClientProtocol {
             let parameters: Parameters = request.parameters
             let url = configuration.baseUrl + request.resourceName
             let alamoReq = Alamofire.request(url, method: request.method.http, parameters: parameters, headers: headers)
-            alamoReq.validate().responseString { (response) in
+            alamoReq.validate(statusCode: configuration.minStatusCode...configuration.maxStatusCode)
+                .responseString { (response) in
                 var apiResponse = T.Response()
                 switch response.result {
                 case .success(let JSONString):
@@ -55,9 +56,6 @@ protocol APIClientProtocol {
     
     /// Configuration for the client
     var configuration: APIConfiguration? { get set }
-    
-    /// The shared instance
-    static var shared: APIClientProtocol { get }
     
     /// Send a request to the server
     func send<T: APIRequest>( _ request: T, objectBlock block: ResultCallback<T.Response>?) -> DataRequest?

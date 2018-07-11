@@ -9,5 +9,13 @@
 import SwiftRestAPIClient
 
 class MyConfiguration: APIConfiguration {
+    var minStatusCode: Int = 200
     
+    var maxStatusCode: Int = 600
+    
+    var baseUrl: String = "https://127.0.0.1:8081"
+    
+    var headers: [String: String] {
+        return [:]
+    }
 }

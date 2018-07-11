@@ -31,7 +31,7 @@ SwiftRestAPIClient provides a basic structure for creating a client API to conne
   s.ios.deployment_target = '8.0'
   s.swift_version = '3.2'
 
-  s.source_files = 'SwiftRestAPIClient/Pod/Classes/**/*'
+  s.source_files = 'Classes/**/*.swift'
   
   # s.resource_bundles = {
   #   'SwiftRestAPIClient' => ['SwiftRestAPIClient/Assets/*.png']

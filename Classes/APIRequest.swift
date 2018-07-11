@@ -7,7 +7,7 @@
 
 import Alamofire
 
-protocol APIRequest {
+public protocol APIRequest {
     
     /// Type of response that will be returned from this request
     associatedtype Response: APIResponse
@@ -41,7 +41,7 @@ extension APIRequest {
     
 }
 
-enum APIMethod: String {
+public enum APIMethod: String {
     case get = "GET"
     case post = "POST"
     case delete = "DELETE"

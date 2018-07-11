@@ -5,7 +5,7 @@
 //  Created by Kemal Hasan Atay on 7/8/18.
 //
 
-protocol APIResponse {
+public protocol APIResponse {
     
     /// Initialize a response
     init()
@@ -23,6 +23,6 @@ protocol APIResponse {
     func gotData(JSONString: String)
     
     /// Parse the error JSON String
-    mutating func gotError(JSONString: String)
+    func gotError(JSONString: String)
 }
 
