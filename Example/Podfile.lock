@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.7.2)
-  - SwiftRestAPIClient (0.1.0):
+  - SwiftRestAPIClient (1.0.0):
     - Alamofire
 
 DEPENDENCIES:
@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
-  SwiftRestAPIClient: 01e5304648986f831c043e9cfa6031ca7962ccfd
+  SwiftRestAPIClient: b05dbc1d91226b6e56395a0d03392d8e42c7a4cd
 
 PODFILE CHECKSUM: 79db56fa76fc4ac04285b374b3245ac0754f9c30
 

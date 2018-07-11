@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		34EB0A5054CDAD6F5AF7A591 /* Pods_SwiftRestAPIClient_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1704BAD669A1577315A99ECB /* Pods_SwiftRestAPIClient_Tests.framework */; };
 		42D6621F2EC82243FA7425CA /* Pods_SwiftRestAPIClient_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4734D2E1BF819975AE0130C0 /* Pods_SwiftRestAPIClient_Example.framework */; };
+		43F6061A20F5EA0800EC9D54 /* MyConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F6061920F5EA0800EC9D54 /* MyConfiguration.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		2AE7C2AC8AAEE9E5E82606C8 /* Pods-SwiftRestAPIClient_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRestAPIClient_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftRestAPIClient_Example/Pods-SwiftRestAPIClient_Example.release.xcconfig"; sourceTree = "<group>"; };
 		2EB50C28A8490B179C70E287 /* Pods-SwiftRestAPIClient_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRestAPIClient_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftRestAPIClient_Example/Pods-SwiftRestAPIClient_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		34964312D7DC19A600693C52 /* SwiftRestAPIClient.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SwiftRestAPIClient.podspec; path = ../SwiftRestAPIClient.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		43F6061920F5EA0800EC9D54 /* MyConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyConfiguration.swift; sourceTree = "<group>"; };
 		4734D2E1BF819975AE0130C0 /* Pods_SwiftRestAPIClient_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftRestAPIClient_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A19A36601FA81325B6B962B /* Pods-SwiftRestAPIClient_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRestAPIClient_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftRestAPIClient_Tests/Pods-SwiftRestAPIClient_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* SwiftRestAPIClient_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftRestAPIClient_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				43F6061920F5EA0800EC9D54 /* MyConfiguration.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -305,12 +308,10 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftRestAPIClient_Example/Pods-SwiftRestAPIClient_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftRestAPIClient/SwiftRestAPIClient.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftRestAPIClient.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -324,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43F6061A20F5EA0800EC9D54 /* MyConfiguration.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);

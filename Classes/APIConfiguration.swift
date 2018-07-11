@@ -12,7 +12,7 @@ protocol APIConfiguration {
     /// Base URL of the API
     var baseUrl: String { get }
     
-    /// HTTP Headers
+    /// The default HTTP Headers that will be sent for every request
     var headers: HTTPHeaders { get }
     
 }
