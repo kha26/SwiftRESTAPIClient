@@ -35,7 +35,8 @@ public class APIClient: APIClientProtocol {
                         if code < 400 {
                             apiResponse.gotData(JSONString: JSONString)
                         } else {
-                            apiResponse.gotError(JSONString: JSONString)
+                            apiResponse.error = APIError.serverError(JSONString: JSONString)
+                            apiResponse.success = false
                         }
                     } else {
                         apiResponse.error = APIError.serverUnknownError

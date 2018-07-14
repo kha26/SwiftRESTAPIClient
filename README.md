@@ -55,45 +55,7 @@ GET /posts
 POST /posts
 POST /users/login
 
-Before implementing the requests we need to figure out what kind of responses we want to receive. Usually a request returns one object or an array of objects. I usually create the following two classes for responses: ObjectResponse and ArrayResponse. Let's assume you use a base class for your objects in your API: MyAPIObject. Then we can code ObjectResponse like this:
-
-```swift
-class ObjectResponse<T>: APIResponse where T: MyAPIObject {
-
-    required init() {}
-
-    typealias ResultType = T
-
-    var result: ResultType?
-
-    var error: APIError?
-
-    var success: Bool = false
-
-    func gotData(JSONString: String) {
-        // Convert the JSONString into MyAPIObject
-        // I use the ObjectMapper pod by Hearst-DD, so my conversion goes like this
-        if let result = Mapper<T>().map(JSONString: JSONString) {
-            self.success = true
-            self.result = result
-        } else {
-            self.success = false
-            self.error = APIError.jsonConversionFailed
-        }
-    }
-    
-    func gotError(JSONString: String) {
-        // If the server sends some data as an error, you can
-        // do the parsing here and set self.error
-    }
-}
-```
-
-The ArrayResponse is similar to ObjectResponse. Just use 
-```swift
-typealias ResultType = [T]
-```
-and you might want to change the ```gotData``` function as well. Now it's time to create the requests.
+Before implementing the requests we need to figure out what kind of responses we want to receive. Usually a request returns one object or an array of objects. There are two classes implementing the APIResponse protocol: ObjectResponse and ArrayResponse. As you can tell one of them is for returning objects and the other is for returning an array of objects. These objects must implement the ```Codable``` protocol. ```Codable``` is a Swift library presented in Swift 4. I'd recommend you to check <a href="https://medium.com/@sarunw/codable-in-swift-4-0-1a12e38599d8">this guide</a> if you don't know how to use it.
 
 For a GET request like ```GET /posts?limit=5&offset=10 you can implement the ```APIRequest``` protocol in the following way:
 ```swift
