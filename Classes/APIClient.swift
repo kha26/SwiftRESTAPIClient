@@ -13,7 +13,7 @@ public class APIClient: APIClientProtocol {
     
     public static var shared: APIClient = APIClient()
     
-    func send<T>(_ request: T, objectBlock block: ResultCallback<T.Response>?) -> DataRequest?
+    public func send<T>(_ request: T, objectBlock block: ResultCallback<T.Response>?) -> DataRequest?
         where T: APIRequest {
             guard let configuration = configuration else {
                 fatalError("Configuration not set for the APIClient.")
@@ -51,7 +51,7 @@ public class APIClient: APIClientProtocol {
     }
 }
 
-typealias ResultCallback<Value> = (Value) -> Void
+public typealias ResultCallback<Value> = (Value) -> Void
 
 protocol APIClientProtocol {
     

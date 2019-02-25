@@ -28,7 +28,7 @@ public protocol APIResponse {
 
 public class ObjectResponse<T>: APIResponse where T: Codable {
     
-    required public init() {}
+    public required init() {}
     
     public typealias ResultType = T
     

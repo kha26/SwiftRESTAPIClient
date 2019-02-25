@@ -29,7 +29,7 @@ public protocol APIRequest {
     
 }
 
-extension APIRequest {
+public extension APIRequest {
     
     var headers: HTTPHeaders {
         return [:]
