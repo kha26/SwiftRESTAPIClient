@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftRestAPIClient'
-  s.version          = '1.0.3'
+  s.version          = '2.0.0'
   s.summary          = 'A REST API client for Swift.'
 
 # This description is used to generate tags and improve search results.
@@ -29,7 +29,7 @@ SwiftRestAPIClient provides a basic structure for creating a client API to conne
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
-  s.swift_version = '3.2'
+  s.swift_version = '4.0'
 
   s.source_files = 'Classes/**/*.swift'
   
