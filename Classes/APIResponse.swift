@@ -41,7 +41,9 @@ public class ObjectResponse<T>: APIResponse where T: Codable {
     public func gotData(JSONString: String) {
         if let data = JSONString.data(using: .utf8) {
             do {
-                let result = try JSONDecoder().decode(ResultType.self, from: data)
+                let decoder = JSONDecoder();
+                decoder.dateDecodingStrategy = JSONDecoder.DateDecodingStrategy.iso8601
+                let result = try decoder.decode(ResultType.self, from: data)
                 self.result = result
             } catch {
                 self.success = false
@@ -69,7 +71,9 @@ public class ArrayResponse<T>: APIResponse where T: Codable {
     public func gotData(JSONString: String) {
         if let data = JSONString.data(using: .utf8) {
             do {
-                let result = try JSONDecoder().decode(ResultType.self, from: data)
+                let decoder = JSONDecoder();
+                decoder.dateDecodingStrategy = JSONDecoder.DateDecodingStrategy.iso8601
+                let result = try decoder.decode(ResultType.self, from: data)
                 self.result = result
             } catch {
                 self.success = false
@@ -79,5 +83,29 @@ public class ArrayResponse<T>: APIResponse where T: Codable {
             self.success = false
             self.error = APIError.jsonConversionFailed
         }
+    }
+}
+
+extension ISO8601DateFormatter {
+    convenience init(_ formatOptions: Options, timeZone: TimeZone = TimeZone(secondsFromGMT: 0)!) {
+        self.init()
+        self.formatOptions = formatOptions
+        self.timeZone = timeZone
+    }
+}
+
+extension Formatter {
+    static let iso8601 = ISO8601DateFormatter([.withInternetDateTime])
+}
+
+extension JSONDecoder.DateDecodingStrategy {
+    static let iso8601withFractionalSeconds = custom {
+        let container = try $0.singleValueContainer()
+        let string = try container.decode(String.self)
+        guard let date = Formatter.iso8601.date(from: string) else {
+            throw DecodingError.dataCorruptedError(in: container,
+                                                   debugDescription: "Invalid date: " + string)
+        }
+        return date
     }
 }
