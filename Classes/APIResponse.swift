@@ -74,6 +74,7 @@ public class ArrayResponse<T>: APIResponse where T: Codable {
                 let decoder = JSONDecoder();
                 decoder.dateDecodingStrategy = JSONDecoder.DateDecodingStrategy.iso8601
                 let result = try decoder.decode(ResultType.self, from: data)
+                self.success = true;
                 self.result = result
             } catch {
                 self.success = false
