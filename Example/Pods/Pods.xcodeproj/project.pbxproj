@@ -20,7 +20,6 @@
 		5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E230A0448B394DE26E688DAC8E6201E /* Request.swift */; };
 		61200D01A1855D7920CEF835C8BE00B0 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCBF1EED873F61C6D46CE37FA5C39D3 /* DispatchQueue+Alamofire.swift */; };
 		62F65AD8DC4F0F9610F4B8B4738EC094 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B030D27CAC730C5EB0F22390645310 /* ServerTrustPolicy.swift */; };
-		6CD4878A5E22971232BB50332D511D27 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA45FB6B5EA0FA73D0C660EA142DB11 /* APIResponse.swift */; };
 		6D55C653872B92E1FB10FB085416DCA4 /* SwiftRestAPIClient-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B7D98FD84E396B45504CB2897374577 /* SwiftRestAPIClient-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7B5FE28C7EA4122B0598738E54DBEBD8 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195D73DD9EF275A3C56569E2B1CA8026 /* SessionDelegate.swift */; };
 		7D8CC01E8C9EFFF9F4D65406CDE0AB66 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D60BC9955B4F7FFA62D7440CB385C11 /* Result.swift */; };
@@ -139,7 +138,6 @@
 		F10BF1D6D269A7CB370664C3C73B14B3 /* Pods-SwiftRestAPIClient_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftRestAPIClient_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		F9CB3FEB333725084B018DFFE2AB78EA /* Pods-SwiftRestAPIClient_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftRestAPIClient_Example-frameworks.sh"; sourceTree = "<group>"; };
 		FD439C51681F1128EB562BBCCACAC58F /* Pods-SwiftRestAPIClient_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftRestAPIClient_Example.release.xcconfig"; sourceTree = "<group>"; };
-		FFA45FB6B5EA0FA73D0C660EA142DB11 /* APIResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = APIResponse.swift; path = Classes/APIResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,7 +340,6 @@
 				3B6B78B67B13FCB67A5ABC4BA8570EC8 /* APIConfiguration.swift */,
 				E51E08B5273863CDB24231C335A4FD3D /* APIError.swift */,
 				B612325BFB03520AB9BAF1BA4FA20B66 /* APIRequest.swift */,
-				FFA45FB6B5EA0FA73D0C660EA142DB11 /* APIResponse.swift */,
 				A8537F842EBBEDB5CB0F427276B07A96 /* Pod */,
 				3F7F1F041045BA0D90A3121825104BC4 /* Support Files */,
 			);
@@ -544,7 +541,6 @@
 				CA6B345E45D664154B02EFAFC094F90D /* APIConfiguration.swift in Sources */,
 				D6BA6313392CE622A2AB61C45B1D5B9F /* APIError.swift in Sources */,
 				1C159F580EF27E14CE4E9407A65C417B /* APIRequest.swift in Sources */,
-				6CD4878A5E22971232BB50332D511D27 /* APIResponse.swift in Sources */,
 				23E9F01BAAC187FD6540278CE2FF82CB /* SwiftRestAPIClient-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

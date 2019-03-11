@@ -6,7 +6,7 @@
 //  Copyright (c) 2018 kha26. All rights reserved.
 //
 
-import UIKit
+import SwiftRestAPIClient
 
 class ViewController: UIViewController {
 
@@ -14,6 +14,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        _ = APIClient.shared.send(GetWorkouts(), reponseBlock: { (response) in
+            switch response {
+            case .success(let workouts):
+                print("Got Workouts");
+                for workout in workouts {
+                    print(workout.name)
+                }
+            case .failure(let error):
+                print(error);
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {

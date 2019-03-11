@@ -13,7 +13,7 @@ public class APIClient: APIClientProtocol {
     
     public static var shared: APIClient = APIClient()
     
-    public func send<T>(_ request: T, objectBlock block: ResultCallback<T.Response>?) -> DataRequest?
+    public func send<T>(_ request: T, reponseBlock block: ((APIResponse<T.Response>) -> Void)?) -> DataRequest?
         where T: APIRequest {
             guard let configuration = configuration else {
                 fatalError("Configuration not set for the APIClient.")
@@ -22,36 +22,37 @@ public class APIClient: APIClientProtocol {
             for (key, value) in request.headers {
                 headers[key] = value
             }
-            
             let parameters: Parameters = request.parameters
             let url = configuration.baseUrl + request.resourceName
-            let alamoReq = Alamofire.request(url, method: request.method.http, parameters: parameters, headers: headers)
-            alamoReq.validate(statusCode: configuration.minStatusCode...configuration.maxStatusCode)
-                .responseString { (response) in
-                var apiResponse = T.Response()
-                switch response.result {
-                case .success(let JSONString):
-                    if let code = response.response?.statusCode {
-                        if code < 400 {
-                            apiResponse.gotData(JSONString: JSONString)
+            let request = Alamofire.request(url, method: request.method.http, parameters: parameters, headers: headers)
+                .validate(statusCode: configuration.minStatusCode...configuration.maxStatusCode)
+                .responseData { (response) in
+                    let callbackResponse: APIResponse<T.Response>
+                    switch response.result {
+                    case .success(let data):
+                        if let statusCode = response.response?.statusCode,
+                            statusCode >= configuration.minErrorCode {
+                            callbackResponse = .failure(APIError.serverError(JSONString: String(data: data, encoding: .utf8) ?? "Unkown Error"));
                         } else {
-                            apiResponse.error = APIError.serverError(JSONString: JSONString)
-                            apiResponse.success = false
+                            do {
+                                let decoder = JSONDecoder();
+                                decoder.dateDecodingStrategy = JSONDecoder.DateDecodingStrategy.iso8601;
+                                let result = try decoder.decode(T.Response.self, from: data);
+                                callbackResponse = .success(result);
+                            } catch {
+                                callbackResponse = .failure(error);
+                            }
                         }
-                    } else {
-                        apiResponse.error = APIError.serverUnknownError
+                    case .failure(let error):
+                        callbackResponse = .failure(error)
                     }
-                case .failure(let error):
-                    apiResponse.error = error
-                }
-                request.callback(item: apiResponse)
-                block?(apiResponse)
+                    request.callback(response: callbackResponse);
+                    block?(callbackResponse);
             }
-            return alamoReq
+            return request;
     }
 }
 
-public typealias ResultCallback<Value> = (Value) -> Void
 
 protocol APIClientProtocol {
     
@@ -59,5 +60,10 @@ protocol APIClientProtocol {
     var configuration: APIConfiguration? { get set }
     
     /// Send a request to the server
-    func send<T: APIRequest>( _ request: T, objectBlock block: ResultCallback<T.Response>?) -> DataRequest?
+    func send<T: APIRequest>( _ request: T, reponseBlock block: ((APIResponse<T.Response>) -> Void)?) -> DataRequest?
+}
+
+public enum APIResponse<Value> {
+    case failure(Error);
+    case success(Value);
 }

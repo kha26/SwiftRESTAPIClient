@@ -10,7 +10,7 @@ import Alamofire
 public protocol APIRequest {
     
     /// Type of response that will be returned from this request
-    associatedtype Response: APIResponse
+    associatedtype Response: Decodable
     
     /// The resourse name, aka. the route to access the resource
     var resourceName: String { get }
@@ -22,23 +22,20 @@ public protocol APIRequest {
     var parameters: [String: Any] { get set }
     
     /// HTTP Headers
-    var headers: HTTPHeaders { get }
+    var headers: [String: String] { get }
     
     /// Callback for custom action
-    func callback(item: Response)
+    func callback(response: APIResponse<Response>)
     
 }
 
 public extension APIRequest {
     
-    var headers: HTTPHeaders {
+    var headers: [String: String] {
         return [:]
     }
     
-    func callback(item: Response) {
-        
-    }
-    
+    func callback(response: APIResponse<Response>) {}
 }
 
 public enum APIMethod: String {

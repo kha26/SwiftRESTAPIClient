@@ -19,4 +19,6 @@ public protocol APIConfiguration {
     // The maximum acceptable status code for the backend
     var maxStatusCode: Int { get }
     
+    // The minimum error code
+    var minErrorCode: Int { get }
 }
